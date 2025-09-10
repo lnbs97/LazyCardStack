@@ -75,7 +75,13 @@ publishing {
     }
 }
 
-// Signing artifacts. Signing.* extra properties values will be used
-signing {
-    sign(publishing.publications)
+// Signing artifacts. Only sign if signing properties are present.
+val signingKeyId = findProperty("signing.keyId")?.toString()
+val signingPassword = findProperty("signing.password")?.toString()
+val secretKeyRingFile = findProperty("signing.secretKeyRingFile")?.toString()
+
+if (!signingKeyId.isNullOrBlank() && !signingPassword.isNullOrBlank() && !secretKeyRingFile.isNullOrBlank()) {
+    signing {
+        sign(publishing.publications)
+    }
 }

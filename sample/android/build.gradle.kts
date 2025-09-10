@@ -56,6 +56,6 @@ dependencies {
 
     implementation(compose.ui)
     implementation(compose.material)
-    implementation("io.ktor:ktor-client-logging:2.3.9")
-    implementation("io.ktor:ktor-client-logging-native:1.3.1")
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.logging.native)
 }
