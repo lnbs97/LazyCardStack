@@ -48,8 +48,10 @@ public fun LazyCardStack(
     val itemProviderLambda = rememberLazyCardStackItemProviderLambda(state, content)
     val measurePolicy = rememberLazyCardStackMeasurePolicy(state, itemProviderLambda)
     val scope = rememberCoroutineScope()
+
     LazyLayout(
         itemProvider = itemProviderLambda,
+        prefetchState = state.prefetchState,
         modifier = Modifier
             .then(state.remeasurementModifier)
             .then(state.awaitLayoutModifier)

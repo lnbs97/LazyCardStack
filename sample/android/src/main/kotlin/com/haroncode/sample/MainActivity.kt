@@ -6,10 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.remember
 import com.haroncode.sample.ui.ComposeApp
+import io.kamel.core.config.Core
 import io.kamel.core.config.KamelConfig
-import io.kamel.core.config.httpFetcher
+import io.kamel.core.config.httpUrlFetcher
 import io.kamel.core.config.takeFrom
-import io.kamel.image.config.Default
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 
@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             val kamelConfig = remember {
                 KamelConfig {
-                    takeFrom(KamelConfig.Default)
-                    httpFetcher {
+                    takeFrom(KamelConfig.Core)
+                    httpUrlFetcher {
                         Logging {
                             logger = CustomAndroidHttpLogger
                         }

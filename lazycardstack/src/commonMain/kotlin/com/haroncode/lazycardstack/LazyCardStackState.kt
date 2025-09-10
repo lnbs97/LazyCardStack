@@ -131,7 +131,6 @@ public class LazyCardStackState internal constructor(
 
         swiperState.snapTo(Offset.Zero)
 
-        prefetchState.schedulePrefetch(visibleItemIndex + 2, premeasureConstraints)
         remeasurement?.forceRemeasure()
     }
 
@@ -151,7 +150,6 @@ public class LazyCardStackState internal constructor(
 
         swiperState.snapTo(Offset.Zero)
 
-        prefetchState.schedulePrefetch(visibleItemIndex + 2, premeasureConstraints)
         remeasurement?.forceRemeasure()
     }
 
